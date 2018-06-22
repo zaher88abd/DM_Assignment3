@@ -58,14 +58,13 @@ if __name__ == '__main__':
     # Authentication
     consumer_key = "n6iyScQHpwEN0OaN81H4va6kQ"
     consumer_secret = "XYrUmZsfg0JcWmSK9PItleMPIr8Jh617PWNC0ngnUvw54fucTz"
-    access_token = "1000024427969568769-GumqNJgGJZxyhLChpz6ImAPYluf0LI
-"
+    access_token = "1000024427969568769-GumqNJgGJZxyhLChpz6ImAPYluf0LI"
     access_token_secret = "733B05E1wAZWWumn68nb92A2pFFOy1tWQ7fH7vEleVEQD"
 
     # Local connection
     # Get local machine name (copy internal address from EC2 instance).
     host = "134.190.156.246"
-    port = 5555                 # Reserve a port for your service.
+    port = 9200                 # Reserve a port for your service.
 
     s = socket.socket()         # Create a socket object.
     s.bind((host, port))        # Bind to the port.

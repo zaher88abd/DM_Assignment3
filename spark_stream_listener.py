@@ -6,10 +6,10 @@ sc = SparkContext("local[2]", "Tweet Streaming App")
 
 
 ssc = StreamingContext(sc, 10)
-sqlContext = SQLContext(sc)
-ssc.checkpoint( "file:/home/ubuntu/tweets/checkpoint/")
+# sqlContext = SQLContext(sc)
+ssc.checkpoint( "file:/home/zaher/Github/DM_Assignment3/tweets/checkpoint/")
 
-socket_stream = ssc.socketTextStream("<your_ip>", 5555) # Internal ip of  the tweepy streamer
+socket_stream = ssc.socketTextStream("134.190.156.246", 9200) # Internal ip of  the tweepy streamer
 
 lines = socket_stream.window(20)
 
