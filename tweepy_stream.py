@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
     # Local connection
     # Get local machine name (copy internal address from EC2 instance).
-    host = "134.190.156.246"
+    host = "127.0.0.1"
     port = 9200                 # Reserve a port for your service.
 
     s = socket.socket()         # Create a socket object.
