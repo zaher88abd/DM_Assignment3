@@ -1,5 +1,15 @@
+from pyspark.sql import SQLContext
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
+from pyspark.sql.functions import col
+
+from pyspark.ml.feature import RegexTokenizer, StopWordsRemover, CountVectorizer
+from pyspark.ml.classification import LogisticRegression, NaiveBayes, LinearSVC
+
+from pyspark.ml import Pipeline
+from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler
+
+from pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator
 # from pyspark.sql.functions import desc
 
 sc = SparkContext("local[2]", "Tweet Streaming App")
