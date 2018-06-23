@@ -10,7 +10,7 @@ ssc = StreamingContext(sc, 10)
 ssc.checkpoint("./tweets/checkpoint/")
 
 # Internal ip of  the tweepy streamer
-socket_stream = ssc.socketTextStream("134.190.156.246", 9200)
+socket_stream = ssc.socketTextStream("127.0.0.1", 9200)
 
 lines = socket_stream.window(20)
 
