@@ -122,5 +122,4 @@ venv.bak/
 # checkpoints
 tweets/
 logreg.model
-*.csv
-*.txt
+
