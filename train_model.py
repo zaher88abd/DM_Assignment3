@@ -39,6 +39,8 @@ data.groupBy("SentimentText") \
 print("Training Dataset Count: " + str(trainingData.count()))
 print("Test Dataset Count: " + str(testData.count()))
 
+print("Type of data",type(trainingData))
+
 # regular expression tokenizer
 regexTokenizer = RegexTokenizer(
     inputCol="SentimentText", outputCol="words", pattern="\\W")
@@ -91,6 +93,6 @@ accuracy = evaluator.evaluate(predictions)
 print("Accuracy: %g" % (accuracy))
 
 # save the trained model for future use
-pipelineFit.save("logreg.model")
+pipelineFit.write().overwrite().save("piplineModel")
 
 # PipelineModel.load("logreg.model")
