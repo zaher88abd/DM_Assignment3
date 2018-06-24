@@ -18,6 +18,7 @@ class TwitterStreamListener(tweepy.StreamListener):
     def __init__(self, sc):
         super(TwitterStreamListener, self).__init__()
         self.client_socket = sc
+        self.counter = 0
 
     def on_status(self, status):
         # print(status.text)
@@ -39,6 +40,10 @@ class TwitterStreamListener(tweepy.StreamListener):
         text = tweet.text
         if hasattr(tweet, 'extended_tweet'):
             text = tweet.extended_tweet['full_text']
+        self.counter += 1
+        if self.counter==2000:
+            print("Done work")
+            exit()
         return [str(tweet.user.id), tweet.user.screen_name, self.clean_str(text)]
 
     def clean_str(self, string):
