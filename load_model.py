@@ -32,6 +32,9 @@ def getSparkSessionInstance(sparkConf):
     return globals()["sparkSessionSingletonInstance"]
 
 
+counter = 0
+
+
 def do_something(time, rdd):
     print("========= %s =========" % str(time))
     try:
@@ -51,9 +54,11 @@ def do_something(time, rdd):
         lineCountsDataFrame = spark.sql(
             "select SentimentText, prediction  from tweets")
         print("Show data")
+
         lineCountsDataFrame.show()
-        lineCountsDataFrame.write.format(
-            "com.databricks.spark.csv").save("dirwithcsv")
+        print("Classifiy :", lineCountsDataFrame.count())
+        lineCountsDataFrame.coalesce(1).write.format(
+            "com.databricks.spark.csv").option("header", "true").save("file.csv")
     except:
         pass
 
